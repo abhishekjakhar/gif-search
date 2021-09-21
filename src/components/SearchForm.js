@@ -1,10 +1,13 @@
 import * as React from "react";
 
-function SearchForm() {
-  const onSearchChange = (e) => {};
+function SearchForm({ onSearch }) {
+  const [searchText, setSearchText] = React.useState("");
+
+  const onSearchChange = (e) => setSearchText(e.target.value);
 
   function handleSubmit(e) {
     e.preventDefault();
+    onSearch(searchText);
     e.currentTarget.reset();
   }
 
@@ -15,6 +18,7 @@ function SearchForm() {
       </label>
       <input
         type="search"
+        value={searchText}
         onChange={onSearchChange}
         name="search"
         placeholder="Search..."

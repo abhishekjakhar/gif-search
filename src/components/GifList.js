@@ -3,8 +3,8 @@ import * as React from "react";
 import Gif from "./Gif";
 import NoGifs from "./NoGifs";
 
-function GifList(props) {
-  const results = props.data;
+function GifList({ data }) {
+  const results = data;
 
   let gifs;
   if (results.length) {
